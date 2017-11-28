@@ -1,5 +1,7 @@
 # WithLockVersion
 
+[![Build Status](https://travis-ci.org/bluerabbit/with_lock_version.svg?branch=master)](https://travis-ci.org/bluerabbit/with_lock_version)
+
 ActiveRecordでlock_versionカラムを使った楽観的ロックをする際に楽になるhelper methodを提供するgemです。
 
 ## Installation
