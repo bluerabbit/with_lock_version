@@ -33,6 +33,9 @@ describe WithLockVersion do
           order.update_attributes!(status: 2)
         end
       }.to raise_error(ActiveRecord::StaleObjectError)
+
+      expect(order.lock_version).to eq(0)
+      expect(order.status).to eq(1)
     end
   end
 end
