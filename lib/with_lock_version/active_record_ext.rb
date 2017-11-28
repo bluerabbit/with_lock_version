@@ -17,17 +17,27 @@ module WithLockVersion
 
       def with_lock_version(target_lock_version)
         unless lock_version.to_i == target_lock_version.to_i
-          raise ActiveRecord::StaleObjectError
+          raise_error
         end
 
         with_lock do
           unless lock_version.to_i == target_lock_version.to_i
-            raise ActiveRecord::StaleObjectError
+            raise_error
           end
 
           touch # Update lock_version + 1
 
           yield
+        end
+      end
+
+      private
+
+      def raise_error
+        if ActiveRecord::StaleObjectError.method(:new).arity == 0
+          raise ActiveRecord::StaleObjectError
+        else
+          raise ActiveRecord::StaleObjectError.new(self, "with_lock_version mismatch")
         end
       end
     end
