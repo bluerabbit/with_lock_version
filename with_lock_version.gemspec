@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Akira Kusumoto"]
   spec.email         = ["akirakusumo10@gmail.com"]
 
-  spec.summary       = ""
-  spec.description   = ""
+  spec.summary       = "Optimistic lock helper on ActiveRecord."
+  spec.description   = "Optimistic lock helper on ActiveRecord."
   spec.homepage      = "https://github.com/bluerabbit/with_lock_version"
   spec.license       = "MIT"
 
