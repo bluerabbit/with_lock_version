@@ -10,7 +10,7 @@ rvm:
 gemfile:
   - gemfiles/rails_4_1.gemfile
   - gemfiles/rails_4_2.gemfile
-  - gemfiles/rails_5_0.gemfile
+  - gemfiles/rails_5_2.gemfile
 before_install: gem install bundler -v 1.11.2
 before_script:
   - cp spec/database.yml.travis spec/database.yml
@@ -21,4 +21,4 @@ matrix:
   allow_failures:
   # NOTE: There are unstable versions
   - rvm: ruby-head
-  - gemfile: gemfiles/rails_5_0.gemfile
+  - gemfile: gemfiles/rails_5_2.gemfile
