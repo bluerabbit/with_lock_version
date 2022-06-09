@@ -18,7 +18,7 @@ describe WithLockVersion do
       expect(order.lock_version).to eq(1)
 
       order.with_lock_version(1) do         # lock_version + 1
-        order.update_attributes!(status: 2) # lock_version + 1
+        order.update!(status: 2) # lock_version + 1
       end
 
       expect(order.lock_version).to eq(3)
@@ -30,7 +30,7 @@ describe WithLockVersion do
 
       expect {
         order.with_lock_version(1) do
-          order.update_attributes!(status: 2)
+          order.update!(status: 2)
         end
       }.to raise_error(ActiveRecord::StaleObjectError)
 
