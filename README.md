@@ -24,7 +24,7 @@ Or install it yourself as:
 
 ```ruby
   create_table :orders do |t|
-    t.integer :lock_version, default: 0, null: false
+    t.integer :lock_version, default: 1, null: false
     t.timestamps
   end
 ```
